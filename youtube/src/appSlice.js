@@ -43,21 +43,39 @@ const SuggestionSlice = createSlice(
     {
         name:"SuggestionSlice",
         initialState:
-        {
-        },
+        {},
         reducers:
         {
             additem:(state,action)=>
                 {
-                    state = Object.assign(state,action.payload)
+                    Object.assign(state,action.payload)
                 }
         }
     })
 
-export const { toggleSideBar, closeSideBar } = SideBarSlice.actions;
-export const { setSearch } = searchSlice.actions;
-export const {additem} = SuggestionSlice.actions;
+const ChatSlice = createSlice(
+    {
+        name:"chatSlice",
+        initialState:{
+            messages: []
+        },
+        reducers:
+        {
+            addChat:(state,action)=>
+                {
+                    state.messages.splice(10,1)
+                    state.messages.unshift(action.payload);
+                }
+        }
+    })
+
+
+    export const { toggleSideBar, closeSideBar } = SideBarSlice.actions;
+    export const { setSearch } = searchSlice.actions;
+    export const {additem} = SuggestionSlice.actions;
+    export const {addChat} = ChatSlice.actions
 
 export const sideBarReducer = SideBarSlice.reducer;
 export const searchReducer = searchSlice.reducer;
 export const SuggestionReducer = SuggestionSlice.reducer;
+export const ChatReducer = ChatSlice.reducer;
