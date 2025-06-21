@@ -39,8 +39,25 @@ const searchSlice = createSlice(
         }
     })
 
+const SuggestionSlice = createSlice(
+    {
+        name:"SuggestionSlice",
+        initialState:
+        {
+        },
+        reducers:
+        {
+            additem:(state,action)=>
+                {
+                    state = Object.assign(state,action.payload)
+                }
+        }
+    })
+
 export const { toggleSideBar, closeSideBar } = SideBarSlice.actions;
 export const { setSearch } = searchSlice.actions;
+export const {additem} = SuggestionSlice.actions;
 
 export const sideBarReducer = SideBarSlice.reducer;
 export const searchReducer = searchSlice.reducer;
+export const SuggestionReducer = SuggestionSlice.reducer;

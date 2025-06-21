@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {sideBarReducer,searchReducer} from './appSlice';
+import {sideBarReducer,searchReducer,SuggestionReducer} from './appSlice';
 
 // redux Store
 const appStore = configureStore(
@@ -7,7 +7,9 @@ const appStore = configureStore(
             reducer:
             {
                 SideBarReducer : sideBarReducer,
-                SearchReducer:  searchReducer// these are reducers
+                SearchReducer:  searchReducer,
+                SuggestionReducer:SuggestionReducer
+                // these are reducers
             }
         }
     )
